@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tic_tac_toe/view/home.dart';
 import 'package:tic_tac_toe/view/players_info.dart';
 
+// ignore: must_be_immutable
 class GamePanel extends StatefulWidget {
   GamePanel({Key? key, required this.playerNameOne, required this.playerNameTwo}) : super(key: key);
 
