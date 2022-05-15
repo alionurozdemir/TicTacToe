@@ -39,11 +39,11 @@ class _GamePanelState extends State<GamePanel> {
         child: Column(
           children: [
             Text(
-              "${widget.playerNameOne} Score: $exScore ",
+              "${widget.playerNameOne} (X) Score: $exScore ",
               style: const TextStyle(color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
             ),
             Text(
-              "${widget.playerNameTwo} :$ohScore ",
+              "${widget.playerNameTwo} (O) Score :$ohScore ",
               style: const TextStyle(color: Colors.red, fontSize: 25, fontWeight: FontWeight.bold),
             ),
             const Divider(
