@@ -54,7 +54,7 @@ class _PlayersInfoState extends State<PlayersInfo> {
           SizedBox(
             height: 100,
             child: ListView(
-              children: [
+              children: const [
                 Text("Heros List"),
               ],
             ),
@@ -62,7 +62,7 @@ class _PlayersInfoState extends State<PlayersInfo> {
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: ((context) => GamePanel())));
+        Navigator.push(context, MaterialPageRoute(builder: ((context) => const GamePanel())));
       }),
     );
   }

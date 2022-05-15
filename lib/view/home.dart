@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/view/game_panel.dart';
+import 'package:tic_tac_toe/view/players_info.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -20,7 +22,7 @@ class _HomeState extends State<Home> {
             alignment: Alignment.center,
             clipBehavior: Clip.none,
             children: [
-              Container(height: 395, child: Image.asset("assets/images/background.png")),
+              SizedBox(height: 395, child: Image.asset("assets/images/background.png")),
               Positioned(
                 top: 150,
                 left: 135,
@@ -50,7 +52,10 @@ class _HomeState extends State<Home> {
               Positioned(
                 top: 500,
                 child: GestureDetector(
-                  onTap: () => print("object"),
+                  onTap: () {
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: ((context) => const PlayersInfo())));
+                  },
                   child: const Text(
                     "Continue >>",
                     style:

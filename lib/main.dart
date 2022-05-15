@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/view/game_panel.dart';
 
-import 'package:tic_tac_toe/view/players_info.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: GamePanel(),
+      home: const GamePanel(),
     );
   }
 }
