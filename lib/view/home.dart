@@ -18,29 +18,25 @@ class _HomeState extends State<Home> {
         children: [
           Stack(
             alignment: Alignment.center,
+            clipBehavior: Clip.none,
             children: [
-              Container(
-                width: 500,
-                height: 400,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/background.png"),
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/words.png"),
-                    fit: BoxFit.contain,
+              Container(height: 395, child: Image.asset("assets/images/background.png")),
+              Positioned(
+                top: 150,
+                left: 135,
+                child: Container(
+                  width: 127,
+                  height: 100,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/words.png"),
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
               ),
               const Positioned(
-                top: 350,
+                top: 375,
                 child: CircleAvatar(
                   backgroundColor: Colors.orange,
                   radius: 50,
@@ -51,15 +47,19 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
+              Positioned(
+                top: 500,
+                child: GestureDetector(
+                  onTap: () => print("object"),
+                  child: const Text(
+                    "Continue >>",
+                    style:
+                        TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.green),
+                  ),
+                ),
+              )
             ],
           ),
-          const SizedBox(
-            height: 100,
-          ),
-          const Text(
-            "Continue >>",
-            style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.green),
-          )
         ],
       ),
     );
