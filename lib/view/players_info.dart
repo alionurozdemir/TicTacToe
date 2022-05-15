@@ -21,100 +21,102 @@ class _PlayersInfoState extends State<PlayersInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Players Panel")),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            const Divider(
-              thickness: 1,
-              indent: 10,
-              endIndent: 10,
-              color: Color.fromARGB(255, 151, 151, 151),
-              height: 15,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 10,
-                    blurRadius: 5,
-                    offset: const Offset(0, 7), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25),
-                // radius of 10
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            children: [
+              const Divider(
+                thickness: 1,
+                indent: 10,
+                endIndent: 10,
+                color: Color.fromARGB(255, 151, 151, 151),
+                height: 15,
               ),
-              child: TextField(
-                controller: name1,
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  suffix: Icon(
-                    Icons.circle,
-                    color: Colors.blue,
-                    size: 40,
-                  ),
-                  helperText: "Player 1",
-                  contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                ),
+              const SizedBox(
+                height: 25,
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 10,
-                    blurRadius: 5,
-                    offset: const Offset(0, 7), // changes position of shadow
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(25),
-                color: Colors.white,
-
-                // radius of 10
-              ),
-              child: TextField(
-                controller: name2,
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  suffix: Icon(
-                    Icons.circle,
-                    color: Colors.red,
-                    size: 40,
-                  ),
-                  helperText: "Player 2",
-                  contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              "Heros List : ",
-              style: TextStyle(fontSize: 25),
-            ),
-            SizedBox(
-              height: 100,
-              child: ListView.builder(
-                itemCount: widget.herosList.length,
-                itemBuilder: (context, index) => ListTile(
-                    leading: const Icon(
-                      Icons.star,
-                      color: Colors.orange,
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 10,
+                      blurRadius: 5,
+                      offset: const Offset(0, 7), // changes position of shadow
                     ),
-                    title: Text(widget.herosList[index].toString())),
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(25),
+                  // radius of 10
+                ),
+                child: TextField(
+                  controller: name1,
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.person),
+                    suffix: Icon(
+                      Icons.circle,
+                      color: Colors.blue,
+                      size: 40,
+                    ),
+                    helperText: "Player 1",
+                    contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                  ),
+                ),
               ),
-            )
-          ],
+              const SizedBox(
+                height: 15,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 10,
+                      blurRadius: 5,
+                      offset: const Offset(0, 7), // changes position of shadow
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(25),
+                  color: Colors.white,
+
+                  // radius of 10
+                ),
+                child: TextField(
+                  controller: name2,
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.person),
+                    suffix: Icon(
+                      Icons.circle,
+                      color: Colors.red,
+                      size: 40,
+                    ),
+                    helperText: "Player 2",
+                    contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                "Heros List : ",
+                style: TextStyle(fontSize: 25),
+              ),
+              SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  itemCount: widget.herosList.length,
+                  itemBuilder: (context, index) => ListTile(
+                      leading: const Icon(
+                        Icons.star,
+                        color: Colors.orange,
+                      ),
+                      title: Text(widget.herosList[index].toString())),
+                ),
+              )
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
