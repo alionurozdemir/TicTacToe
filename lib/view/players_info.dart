@@ -20,7 +20,11 @@ class _PlayersInfoState extends State<PlayersInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Players Panel")),
+      appBar: AppBar(
+          title: const Text(
+        "Players Panel",
+        style: TextStyle(color: Colors.black),
+      )),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
