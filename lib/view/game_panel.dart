@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/view/home.dart';
+import 'package:tic_tac_toe/view/players_info.dart';
 
 class GamePanel extends StatefulWidget {
-  const GamePanel({Key? key}) : super(key: key);
+  GamePanel({Key? key, required this.playerNameOne, required this.playerNameTwo}) : super(key: key);
+
+  String playerNameOne = " Player 1";
+  String playerNameTwo = "Player 2";
 
   @override
   State<GamePanel> createState() => _GamePanelState();
@@ -17,6 +21,8 @@ class _GamePanelState extends State<GamePanel> {
   int round = 0;
   int filledBoxes = 0;
   String turnPlayer = " Player 1 (X)";
+
+  List herosList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +39,11 @@ class _GamePanelState extends State<GamePanel> {
         child: Column(
           children: [
             Text(
-              "Player 1 Score: $exScore ",
+              "${widget.playerNameOne} Score: $exScore ",
               style: const TextStyle(color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
             ),
             Text(
-              "Player 2 Score :$ohScore ",
+              "${widget.playerNameTwo} :$ohScore ",
               style: const TextStyle(color: Colors.red, fontSize: 25, fontWeight: FontWeight.bold),
             ),
             const Divider(
@@ -54,13 +60,14 @@ class _GamePanelState extends State<GamePanel> {
             ),
             Row(
               children: [
-                Text(
+                const Text(
                   "Turn:",
                   style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "$turnPlayer",
-                  style: TextStyle(color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
+                  turnPlayer,
+                  style: const TextStyle(
+                      color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -93,7 +100,9 @@ class _GamePanelState extends State<GamePanel> {
                                 child: Center(
                                     child: Text(
                                   displayExOh[index],
-                                  style: TextStyle(color: Colors.white, fontSize: 100),
+                                  style: TextStyle(
+                                      color: displayExOh[index] == 'o' ? Colors.red : Colors.blue,
+                                      fontSize: 100),
                                 )),
                               ),
                             );
@@ -103,7 +112,7 @@ class _GamePanelState extends State<GamePanel> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Row(
@@ -111,7 +120,7 @@ class _GamePanelState extends State<GamePanel> {
               children: [
                 ElevatedButton(
                     onPressed: _clearBoard,
-                    child: Text(
+                    child: const Text(
                       "Reset",
                       style: TextStyle(
                         color: Colors.black,
@@ -120,9 +129,14 @@ class _GamePanelState extends State<GamePanel> {
                     )),
                 ElevatedButton(
                     onPressed: (() {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PlayersInfo(
+                                    herosList: herosList,
+                                  )));
                     }),
-                    child: Text(
+                    child: const Text(
                       "Exit",
                       style: TextStyle(
                         color: Colors.black,
@@ -220,7 +234,7 @@ class _GamePanelState extends State<GamePanel> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('DRAW'),
+            title: const Text('DRAW!!'),
             actions: <Widget>[
               TextButton(
                 child: const Text('Play Again!'),
@@ -240,7 +254,9 @@ class _GamePanelState extends State<GamePanel> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: winner == 'x' ? const Text('Player 1') : const Text('Player 2'),
+            title: winner == 'x'
+                ? const Text('Congratulations!!! Player 1 wron (+3 Points )')
+                : const Text('Congratulations!!! Player 2 wron (+3 Points )'),
             actions: <Widget>[
               TextButton(
                 child: const Text('Play Again!'),
@@ -255,9 +271,11 @@ class _GamePanelState extends State<GamePanel> {
 
     if (winner == 'o') {
       ohScore += 1;
+      herosList.add("Player 1  Score = $ohScore");
       round += 1;
     } else if (winner == 'x') {
       exScore += 1;
+      herosList.add("Player 2 Score =  $exScore");
       round += 1;
     }
   }

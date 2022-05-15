@@ -46,7 +46,11 @@ class _HomeState extends State<Home> {
                   onTap: () {
                     print('ss');
                     Navigator.push(
-                        context, MaterialPageRoute(builder: ((context) => const PlayersInfo())));
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => PlayersInfo(
+                                  herosList: [],
+                                ))));
                   },
                   child: const Text(
                     "Continue >>",
