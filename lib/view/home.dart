@@ -44,12 +44,11 @@ class _HomeState extends State<Home> {
               alignment: Alignment.bottomCenter,
               child: GestureDetector(
                   onTap: () {
-                    print('ss');
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: ((context) => PlayersInfo(
-                                  herosList: [],
+                                  herosList: const [],
                                 ))));
                   },
                   child: const Text(

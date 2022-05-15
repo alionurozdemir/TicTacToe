@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/view/game_panel.dart';
 
+// ignore: must_be_immutable
 class PlayersInfo extends StatefulWidget {
   PlayersInfo({Key? key, required this.herosList}) : super(key: key);
 
@@ -41,7 +42,7 @@ class _PlayersInfoState extends State<PlayersInfo> {
                     color: Colors.grey.withOpacity(0.3),
                     spreadRadius: 10,
                     blurRadius: 5,
-                    offset: Offset(0, 7), // changes position of shadow
+                    offset: const Offset(0, 7), // changes position of shadow
                   ),
                 ],
                 color: Colors.white,
@@ -62,7 +63,7 @@ class _PlayersInfoState extends State<PlayersInfo> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Container(
@@ -72,7 +73,7 @@ class _PlayersInfoState extends State<PlayersInfo> {
                     color: Colors.grey.withOpacity(0.3),
                     spreadRadius: 10,
                     blurRadius: 5,
-                    offset: Offset(0, 7), // changes position of shadow
+                    offset: const Offset(0, 7), // changes position of shadow
                   ),
                 ],
                 borderRadius: BorderRadius.circular(25),
@@ -94,10 +95,10 @@ class _PlayersInfoState extends State<PlayersInfo> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Text(
+            const Text(
               "Heros List : ",
               style: TextStyle(fontSize: 25),
             ),
