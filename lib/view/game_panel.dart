@@ -14,7 +14,7 @@ class GamePanel extends StatefulWidget {
 
 class _GamePanelState extends State<GamePanel> {
   bool ohTurn = true; // the first player is 0!
-  List<String> displayExOh = ['', '', '', '', '', '', '', '', ''];
+  List<String> displayExOh = ['', '', '', '', '', '', '', '', '']; // tanımlamaların burada olmaması gerekiyor. ViewModel kısmında olması gerek.
 
   int ohScore = 0;
   int exScore = 0;
@@ -23,7 +23,8 @@ class _GamePanelState extends State<GamePanel> {
   String turnPlayer = " Player 1 (X)";
 
   List herosList = [];
-
+  
+  // View kısmını daha methodlara bölerek yazmalısın.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,6 +59,7 @@ class _GamePanelState extends State<GamePanel> {
               style:
                   const TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
             ),
+            
             Row(
               children: [
                 const Text(
