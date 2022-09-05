@@ -3,7 +3,9 @@ import 'package:tic_tac_toe/view/players_info.dart';
 
 // ignore: must_be_immutable
 class GamePanel extends StatefulWidget {
-  GamePanel({Key? key, required this.playerNameOne, required this.playerNameTwo}) : super(key: key);
+  GamePanel(
+      {Key? key, required this.playerNameOne, required this.playerNameTwo})
+      : super(key: key);
 
   String playerNameOne = " Player 1";
   String playerNameTwo = "Player 2";
@@ -38,46 +40,52 @@ class _GamePanelState extends State<GamePanel> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text(
-              "${widget.playerNameOne} (X) Score: $exScore ",
-              style: const TextStyle(color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "${widget.playerNameTwo} (O) Score :$ohScore ",
-              style: const TextStyle(color: Colors.red, fontSize: 25, fontWeight: FontWeight.bold),
-            ),
-            const Divider(
-              thickness: 1,
-              indent: 10,
-              endIndent: 10,
-              color: Colors.black,
-              height: 15,
-            ),
-            Text(
-              "Round : $round",
-              style:
-                  const TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
-            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const Text(
-                  "Turn:",
-                  style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
+                Text(
+                  "${widget.playerNameOne} (P1) $exScore ",
+                  style: const TextStyle(
+                      color: Colors.blue,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  turnPlayer,
+                  "${widget.playerNameTwo} (P2) $ohScore ",
                   style: const TextStyle(
-                      color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold),
+                      color: Colors.red,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
-            const Divider(
-              thickness: 1,
-              indent: 10,
-              endIndent: 10,
-              color: Color.fromARGB(255, 151, 151, 151),
-              height: 15,
-            ),
+
+            // Row(
+            //   children: [
+            //     const Text(
+            //       "Turn:",
+            //       style: TextStyle(
+            //           color: Colors.black,
+            //           fontSize: 25,
+            //           fontWeight: FontWeight.bold),
+            //     ),
+            //     Text(
+            //       turnPlayer,
+            //       style: const TextStyle(
+            //           color: Colors.blue,
+            //           fontSize: 25,
+            //           fontWeight: FontWeight.bold),
+            //     ),
+            //     Text(
+            //       "Round : $round",
+            //       style: const TextStyle(
+            //           color: Colors.black,
+            //           fontSize: 25,
+            //           fontWeight: FontWeight.bold),
+            //     ),
+            //   ],
+            // ),
+
             SizedBox(
               height: 380,
               child: Column(
@@ -85,23 +93,28 @@ class _GamePanelState extends State<GamePanel> {
                   Expanded(
                     flex: 3,
                     child: Container(
-                      color: Colors.white,
+                      color: const Color(0XFF323D5B),
                       child: GridView.builder(
                           itemCount: 9,
                           gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3),
                           itemBuilder: (BuildContext context, int index) {
                             return GestureDetector(
                               onTap: () {
                                 _tapped(index);
                               },
                               child: Container(
-                                decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: const Color(0XFF6B748C))),
                                 child: Center(
                                     child: Text(
                                   displayExOh[index],
                                   style: TextStyle(
-                                      color: displayExOh[index] == 'o' ? Colors.red : Colors.blue,
+                                      color: displayExOh[index] == 'o'
+                                          ? Colors.red
+                                          : Colors.blue,
                                       fontSize: 100),
                                 )),
                               ),
