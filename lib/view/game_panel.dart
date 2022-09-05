@@ -29,7 +29,7 @@ class _GamePanelState extends State<GamePanel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[100],
+      backgroundColor: const Color(0XFF323D5B),
       appBar: AppBar(
         title: const Text(
           "Game Panel",
@@ -59,7 +59,9 @@ class _GamePanelState extends State<GamePanel> {
                 ),
               ],
             ),
-
+            SizedBox(
+              height: 25,
+            ),
             // Row(
             //   children: [
             //     const Text(
